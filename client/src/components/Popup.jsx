@@ -67,7 +67,7 @@ export default function Popup({ open, value, handleConfirm }) {
           value ?
             (
               <div className='modal'
-                style={{ backgroundColor: theme.color, fontFamily: theme.font }}
+                style={{ backgroundColor: theme.color, fontFamily: theme.font, fontSize: theme.fontSize }}
               >
                 <Box sx={{ display: 'flex', flexDirection: 'column', height: '400px' }}>
                   <Grid2 container justifyContent="center" alignItems="left" sx={{ height: '50px' }}>

@@ -3,8 +3,9 @@ import { Button, MenuItem, Select } from '@mui/material';
 import ThemeContext from '../contexts/ThemeContext';
 
 const icons = ['TimerIcon', 'TimerTwoToneIcon', 'TimerOutlinedIcon']
-const colors = ['paleturquoise', 'olive', 'red'];
-const fonts = ['fantasy', 'Arial, Helvetica, sans-serif', 'Cambria, Cochin, Georgia, Times, Times New Roman, serif'];
+const colors = ['paleturquoise', 'olive', 'red', 'brown', 'grey'];
+const fonts = ['fantasy', 'Arial, Helvetica, sans-serif', 'Cambria, Cochin, Georgia, Times, Times New Roman, serif', "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"];
+const fontSize = [10, 12, 14, 16, 18, 20]
 
 export default function DesignPanel({children}) {
   const [theme, setTheme] = useState(() => {
@@ -12,7 +13,8 @@ export default function DesignPanel({children}) {
     return savedTheme ? JSON.parse(savedTheme) : {
       icon: "TimerIcon",
       color: "paleturquoise", 
-      font: "rial, Helvetica, sans-serif"
+      font: "rial, Helvetica, sans-serif",
+      fontSize: 18
     }
   })
 
@@ -37,6 +39,11 @@ export default function DesignPanel({children}) {
         </Select>
         <Select value={theme.font} onChange={(e) => setTheme({...theme, font: e.target.value})}>
           {fonts.map((font) => (
+            <MenuItem key={font} value={font}>{font}</MenuItem>
+          ))}
+        </Select>
+        <Select value={theme.fontSize} onChange={(e) => setTheme({...theme, fontSize: e.target.value})}>
+          {fontSize.map((font) => (
             <MenuItem key={font} value={font}>{font}</MenuItem>
           ))}
         </Select>
